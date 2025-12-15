@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gridlayout2.html</title>
+  <style>
+      body { margin: 0;}
+      main { display: grid;
+            gap: 12px;
+            width: 100vw;
+            grid-template-areas:
+            "nav    nav    nav"
+            "aside  sec-1  sec-1"
+            "aside  sec-2  sec-3"
+            "footer footer footer";
+            grid-template-columns: 200px 1fr 300px;
+            grid-template-rows: 80px 200px auto 200px;
+          }
+
+      nav { grid-area: nav;}
+      aside { grid-area: aside;}
+      .sec-1 { grid-area: sec-1;}
+      .sec-2 { grid-area: sec-2;}
+      .sec-3 { grid-area: sec-3;}
+      footer { grid-area: footer;}
+
+      main > * { padding: 0.8em;
+                color: slateblue;
+                background-color: lavender;
+      }
+      .sec-2 div { display: noe;
+                  margin: 1em;
+                  padding: 1.6em;
+                  line-height: 2.4em;
+                  font-family: serif;
+                  color: #555;
+                  background-color: white;
+      }
+  </style>
+</head>
+<body>
+  <!-- p.438 -->
+  <main>
+      <nav>nav</nav>
+      <aside>aside</aside>
+      <section class="sec-1">.sec-1</section>
+      <section class="sec-2">
+        .sec-2
+        <div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+          Eaque assumenda aut laudantium quod,<br>
+          facilis repellat eius quia reprehenderit vero velit!
+        </div>
+      </section>
+      <section class="sec-3">.sec-3</section>
+      <footer>footer</footer>
+  </main>
+</body>
+</html>

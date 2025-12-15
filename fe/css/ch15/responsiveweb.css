@@ -1,0 +1,22 @@
+body { margin: 0;}
+#wrapper { display: grid; gap: 12px;}
+#wrapper > * { padding: 1em; font-size: 1.2em;
+              color: royalblue;
+              font-weight: bold;
+              background-color: lightblue;
+}
+header { position: relative; min-width: 80px;}
+nav ul { padding-left: 0.5em;}
+nav li { display: inline-block; margin-right: 1em; color: #333;}
+#menu { position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        height: 64px;
+        line-height: 64px;
+        color: #333;
+        cursor: pointer;
+}
+main div { margin: 1em;
+          
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex_study3.html</title>
+  <style>
+      /* 
+        기본 정방향 main axis(메인축), 좌측->우측
+        방향을 변경하고 싶다. (메인축을 변경하고싶다.) flex-direction 사용
+        - row ( 왼 -> 오 ) - 크로스방향은 (세로)
+        - row-reverse ( 오 -> 왼 ) - 크로스방향은 (세로)
+        
+        - column ( 위 -> 아래 ) - 크로스방향은 (가로)
+        - column-reverse ( 아래 -> 위 ) - 크로스방향은 (가로)
+
+        정뱡향(메인축) 컨트롤 justify-content 속성으로 조정
+        - flex-start(default): 정방향의 시작위치로 붙는다.
+        - flex-end: 정방향의 끝 위치로 붙는다.
+        - center: 중앙정렬
+        - space-evenly: 간격이 모두 동일
+        - space-between: 첫 자식과 마지막 자식은 양쪽 끝에 붙고 나머지는 간격이 모두 동일
+        - space-around: 자식의 양쪽 간격이 모두 동일하다. 자식간 간격은 중첩.
+
+        크로스방향(크로스축) 컨트롤은 align-items 속성으로 조정
+        - stretch(default): 남는 공간을 모두 차지한다.
+        - flex-start: 크로스방향의 시작위치로 붙는다.
+        - flex-end: 크로스방향의 끝 위치로 붙는다.
+        - center: 중앙정렬
+      */
+      .container { 
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #ccc; height: 500px;}
+
+        /*
+        flex-grow, flex-shrink는 자식에게 적용하는 속성
+        flex-grow는 남는 공간을 차지하는 비율, 만약 한 자식만 flex-grow 1이상의 속성값을 가지고 있다면
+        혼자서 남는 공간 모두 차지하겠다는 의미. 두개 이상의 자식이 flex-grow 속성값을 가지고 있다면
+        비율만큼 남는 공간을 차지하게된다.
+
+        shrink(수축)
+        flex-shrink는 width 혹은 flex-basis와 함께 있을 때 적용이 된다.
+        부모가 작아지면서 자식들도 작아지게 되었을 때 각 자식의 width 혹은 flex-basis크기보다
+        더 작아져야 되는 상황일 때 더 빠르게 작아지게 하는 비율값이다.
+        flex-shrink: 0 은 width 혹은 flex-basis로 고정, 절대 작아지지 않는다.
+        flex-shrink: 1은 (default) 부모에 맞춰 작아진다.
+        flex-shrink: 2 이상은 1인 자식보다 더 빠르게 작아지며 숫자가 높을수록 더 빨리 작아진다.
+        */
+
+      .container > div { background-color: slateblue;
+                          width: 100px; min-height: 48px;
+                          padding: 12px;
+                          border: 1px solid #ccc;
+                          font-size: 30px; color: #fff;
+                          flex-grow: 1;
+                        }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div style="flex-shrink: 2;">A</div>
+      <div style="flex-shrink: 3;">B</div>
+      <div>C</div>
+      <div>D</div>
+      <div>E</div>
+  </div>
+</body>
+</html>

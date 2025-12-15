@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gridlayout.html</title>
+  <style>
+      body { margin: 0;}
+      main { display: grid;
+            /* grid-template-columns 가로를 몇 칸으로 구성할지 설정
+            200px 1fr 300px -> 3칸으로 구성하겠다.
+                              첫번째 칸은 가로 크기 200px
+                              두번째 칸은 남는 공간 모두 차지
+                              세번째 칸은 가로 크기 300px
+            */
+            grid-template-columns: 200px 1fr 300px;
+
+            /* grid-template-rows 세로를 몇 칸으로 구성할지 설정 
+            80px 200px auto 200px -> 첫번째 줄은 세로 크기 80px
+                                      두번째 줄은 세로 크기 200px
+                                      세번째 줄은 1fr과 유사
+                                      네번째 줄은 세로 크기 200px
+            */
+            grid-template-rows: 80px 200px auto 200px;
+            gap: 12px;
+            width: 100vw; }
+
+      main > * { padding: 0.8em;
+                color: slateblue;
+                background-color: lavender;
+      }
+      .sec-2 div {
+                  margin: 1em;
+                  padding: 1.6em;
+                  line-height: 2.4em;
+                  font-family: serif;
+                  color: #555;
+                  background-color: white;
+      }
+
+      nav { grid-column: 1 / -1; /* column 그리드 번호 1 ~ 마지막 번호까지 칸 합치기 */}
+      footer { grid-column: 1 / -1;}
+      aside { grid-row: 2 / 4;}
+      .sec-1 { grid-column: 2 / -1;}
+  </style>
+</head>
+<body>
+  <!-- p.438 -->
+  <main>
+      <nav>nav</nav>
+      <aside>aside</aside>
+      <section class="sec-1">.sec-1</section>
+      <section class="sec-2">
+        .sec-2
+        <div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+          Eaque assumenda aut laudantium quod,<br>
+          facilis repellat eius quia reprehenderit vero velit!
+        </div>
+      </section>
+      <section class="sec-3">.sec-3</section>
+      <footer>footer</footer>
+  </main>
+</body>
+</html>
