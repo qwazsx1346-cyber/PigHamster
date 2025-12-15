@@ -5,9 +5,9 @@ body { margin: 0;}
               font-weight: bold;
               background-color: lightblue;
 }
-header { position: relative; min-width: 80px;}
-nav ul { padding-left: 0.5em;}
-nav li { display: inline-block; margin-right: 1em; color: #333;}
+header { position: relative; min-width: 80px; }
+nav ul { padding-left: 0.5em; }
+nav li { display: inline-block; margin-right: 1em; color: #333; }
 #menu { position: absolute;
         top: 0;
         right: 0;
@@ -17,6 +17,35 @@ nav li { display: inline-block; margin-right: 1em; color: #333;}
         color: #333;
         cursor: pointer;
 }
-main div { margin: 1em;
-          
+main div { margin: 1em; /* 4면이 16px의 값씩 적용됨 */
+            padding: 1em;
+            height: 67vh;
+            color: #333;
+            font-weight: normal;
+            background-color: yellow;
+}
+footer { height: 200px;}
+
+@media (max-width: 768px) {
+  nav { display: none; }
+  #menu:hover + nav {
+    display: inherit;
+    text-align: right;
+  }
+  #menu:hover + nav li {
+    display: block;
+    padding: 0.6em;
+  }
+}
+@media (min-width: 769px) {
+  #menu { display: none; }
+  #wrapper {
+    grid-template-columns: 200px 1fr;
+  }
+  header {
+    grid-column: 1 / -1;
+  }
+  footer {
+    grid-column: 1 / -1;
+  }
 }
