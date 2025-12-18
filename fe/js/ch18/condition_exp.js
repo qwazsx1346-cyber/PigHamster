@@ -4,5 +4,5 @@
 
 */
 let val = 10;
-const result = val % 2 == 0 ? '홀수' : '짝수';
+const result = val % 2 === 0 ? '홀수' : '짝수';
 console.log('result:', result);

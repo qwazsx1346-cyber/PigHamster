@@ -1,8 +1,11 @@
 /* object.js
-자바스크립트에서 객체를 만드는 방법
+자바스크립트에서 객체를 만드는 방법 은 중괄호{}로 만든다.
 
 객체는 (속성), (메소드(Method)) 로 이루어질 수 있다.
 속성만있을 수도, 메소드만 있을수도 아에 없을 수 도 있음.
+
+변수는 값을 저장하기위한 공간 = 속성
+메소드(Method) = 기능
 키: 값
 key: value(속성값 or 함수(Function))
 
@@ -16,26 +19,34 @@ person1에 저장되는 값은 객체의 주소값 하나이다!!
 // 김철수3, 25, false들은 속성에 들어있는 값들.
 // run은 메소드(Method), 객체안에 들어있는 함수가 메소드
 // 객체와 주소값등을 눈으로 볼 수는 없다.
-const person1 = {
+let aaa;
+
+const ddd = '';
+
+const bbb = {
     name: '김철수3',
     age: 25,
     married: false,
     run: function() { console.log('나는 뛴다.!!!'); }
-};
+}; //메소드 Method
 
 function run() { console.log('나는 뛴다.!!!'); }
 run();
 
-person1.run();
+const str = 'aaa'
+bbb.run();
 
-const person2 = person1; //shallow copy (얕은 복사, 주소값 복사)
-console.log('person1.name:', person1.name);
+//bbb.abc.ddd = //.abc에는 객체가 저장됨.
+//(가방안에 지갑(객체)안에 지폐(객체)가 있는 것.)
+
+const person2 = bbb; //shallow copy (얕은 복사, 주소값 복사)
+console.log('person1.name:', bbb.name);
 console.log('person2.name:', person2.name);
-person1.name = '홍길동';
+bbb.name = '홍길동';
 person2.age = 30;
-console.log('person1.name:', person1.name);
+console.log('person1.name:', bbb['name']);
 console.log('person2.name:', person2.name);
-console.log('person1.age:', person1.age);
+console.log('person1.age:', bbb.age);
 console.log('person2.age:', person2.age);
 
 

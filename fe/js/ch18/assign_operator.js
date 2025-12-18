@@ -25,7 +25,7 @@ console.log('n3', n3)
 
 
 let n4 = 10;
-let result4 = n4++; //일기 -> 쓰기
+let result4 = n4++; //읽기 -> 쓰기
 
 let n5 = 10;
 let result5 = ++n5; //쓰기 -> 읽기

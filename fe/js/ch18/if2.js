@@ -1,7 +1,9 @@
 /* if2.js
 조건이 여러개인 경우, 
 if-elseif-else  는 결국 그룹이기 때문에 하나만 실행된다.
+ㄴ else가 없다면 실행이 안 될 수도 있다.
 if-elseif 는 하나도 실행이 안 될수도 있다. 만약 실행된다면 하나만 실행된다.
+ㄴ elseif는 갯수상관x,무한대로 적을 수 있음
 
 if(식1) { 
     식1이 true였다면 {} 부분이 모두 실행되고 if-elseif-else 그룹을 빠져나간다. 
@@ -24,6 +26,7 @@ console.log('value: ${value}');
 
 if( value >= 8 ) { //value값이 8이상이라면
     console.log(`${value}값은 8이상이다.`);
+    //홑따옴표가 아니고 백틱임(숫자1왼쪽에 있는친구)
 } else if ( value % 2 == 1 ) {   //value값이 홀수라면 
     console.log(`${value}값은 홀수이다.`);
 } else { //8미만에 짝수들
