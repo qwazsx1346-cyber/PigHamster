@@ -24,31 +24,31 @@ for(let i=star; i>0; i--) {
     console.log(str);
 }
 
-console.log('----------');
+// console.log('----------');
 
-//방법 2
-for(let i=1; i<=star; i++) {
-    let str = '';
-    for(let k=star; k>0; k--) {
-        if(k>i) {
-            str += '_';
-        } else {
-            str += '*';
-        }
-    }
-    console.log(str);
-}
+// //방법 2
+// for(let i=1; i<=star; i++) {
+//     let str = '';
+//     for(let k=star; k>0; k--) {
+//         if(k>i) {
+//             str += '_';
+//         } else {
+//             str += '*';
+//         }
+//     }
+//     console.log(str);
+// }
 
-console.log('----------');
+// console.log('----------');
 
-//방법3
-let aster_risk = '';
-for(let i=1; i<=star; i++) {
-    aster_risk += '*';
+// //방법3
+// let aster_risk = '';
+// for(let i=1; i<=star; i++) {
+//     aster_risk += '*';
     
-    let space = '';
-    for(let k=star; k>i; k--) {
-        space += '_';
-    }
-    console.log(space+aster_risk);
-}
+//     let space = '';
+//     for(let k=star; k>i; k--) {
+//         space += '_';
+//     }
+//     console.log(space+aster_risk);
+// }
