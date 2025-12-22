@@ -9,6 +9,7 @@ abs를 리턴함수로 만들고
 "절대값: 10" 콘솔에 출력해 주세요.
 */
 
+//방법 1
 function returnAdd(num) {
     let val = num;
     if(val < 0) {val = -val;}
@@ -17,3 +18,10 @@ function returnAdd(num) {
 const val = returnAdd(10);
 
 console.log('절대값:', val);
+
+//방법 2
+function abs(num) {
+    return num < 0 ? -num : num;
+}
+const result1 = abs(-10);
+console.log('result1:', result1)
