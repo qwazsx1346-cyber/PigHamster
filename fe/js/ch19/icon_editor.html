@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>icon_editor.html</title>
+</head>
+<body>
+  <h1>ICON EDITOR</h1>
+  <div id="editor"></div>
+  <script>
+      //엘리먼트 생성 함수
+      function makeElement(name, attributes) {
+        const node = document.createElement(name);
+        /* boolean타입이 아닌데 true, false로 용인되는게 있다.(퉁친다)
+          문자열은 빈 문자열 -> false, !(빈 문자열) -> true 처리
+          숫자 0은 -> false, !0은 -> true
+          주소값은 -> true, undefined/null 은 -> false
+        */
+        if( attributes ) {
+            for( const item in attributes ) {
+                node.setAttribute(item, attributes[item]); //'set'은 앞전에 값들을 모두 지우고 객체안에 값을 새로 집어넣을 때 주로 씀
+            }
+        }
+        return node;
+      }
+      const $editor = document.querySelector('#editor');
+      const attributes = {
+        'type': 'text',
+        'value': '100'
+      };
+      const temp = makeElement('input', attributes);
+      $editor.append(temp);
+  </script>
+</body>
+</html>
