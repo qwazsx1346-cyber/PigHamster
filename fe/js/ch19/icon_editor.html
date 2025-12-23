@@ -8,6 +8,8 @@
 <body>
   <h1>ICON EDITOR</h1>
   <div id="editor"></div>
+    <div>ㅋㅋㅋ</div>
+    <div>ㅎㅎㅎ</div>
   <script>
       //엘리먼트 생성 함수
       function makeElement(name, attributes) {
@@ -26,11 +28,12 @@
       }
       const $editor = document.querySelector('#editor');
       const attributes = {
-        'type': 'text',
+        'type': 'number',
         'value': '100'
       };
       const temp = makeElement('input', attributes);
-      $editor.append(temp);
+      // $editor.prepend(temp); //prpend 자식에서 제일 앞으로로 보내기
+      $editor.append(temp); //prpend 자식에서 제일 뒤로 보내기
   </script>
 </body>
 </html>
