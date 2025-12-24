@@ -27,12 +27,19 @@
             const $inputColorClear = makeElement( 'input', { type: 'button', value: 'Clear'} );
             target.append($inputColorClear);
             $inputColorClear.addEventListener( 'click', () => {
-                const tdList = document.querySelectorAll('td')
-                for (const item of tdList) {
+                const tdList = document.querySelectorAll('td') //td의 모든 값이 배열로 넘어고 그 배열값하나가
+                                                                //tdList로 들어가게 된다.
+                for (const item of tdList) { //최초1회로 넘어가는 주소값은 td의 제일 첫번째칸이 넘어감.
                     item.style.backgroundColor = ''
                     //item은 td의 엘리먼트 주소값 담긴다.
+                    //빈칸을 넣으면 색이 없어짐(참고)
                 }
-            })
+
+                // 콜백함수로쓰는 처리하는 방법
+                // tdList.forEach(item => {
+                //     item.style.backgroundColor = '';
+                // });
+            });
 
             const $table = makeElement('table');
             target.append($table);
@@ -63,7 +70,7 @@
             }
         }
         const $editor = document.querySelector('#editor');
-        createIconEditor($editor, 20, 20);
+        createIconEditor($editor, 40, 40);
     </script>
 </body>
 </html>
