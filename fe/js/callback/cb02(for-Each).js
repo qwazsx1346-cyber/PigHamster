@@ -14,6 +14,7 @@ arr.forEach(proc);
 //     proc(arr[i],i);
 // })
 console.log('------------');
+
 arr.forEach((item,idx) => {
   console.log(`arr[${idx}]: ${item}`);
 });
