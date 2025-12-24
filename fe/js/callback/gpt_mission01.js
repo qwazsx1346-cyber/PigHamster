@@ -6,7 +6,15 @@ const users = [
   { id: 5, name: 'Jung', age: 22, isActive: false },
 ];
 
-function proc(item) { users.filter ( item => item.name < 30);
-  console.log(item);
-}
-users.forEach(proc)
+//true는 활성, false는 비활성 유저. 그러므로 활성유저 먼저 뽑아줌
+const act = users.filter( user => user.isActive);
+
+//그 중에서 30세 미만인 사람의 이름만 뽑기
+const yname = act
+.filter(user.age < 30)
+.map(user => user.name);
+
+//마지막으로 출력은 forEach로
+yname.forEach( name => {
+  console.log(`활성 사용자: ${name}`);
+} );
