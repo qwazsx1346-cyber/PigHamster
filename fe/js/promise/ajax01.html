@@ -4,32 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ajax01.html</title>
+  <style>
+      #page-container span {
+          display: inline-block; margin-left: 10px;
+          cursor: pointer;
+      }
+  </style>
 </head>
 <body>
+  <div id="page-container"></div>
   <div id="container"></div>
   <script>
-    // 앞에 . 을 붙일 수 있는건 객체주소값
-    fetch('https://picsum.photos/v2/list')
-    .then(res => res.json()) //json은 문자열. res.json()이렇게쓰면 비로소 자바스크립트가 됨
-      .then(json => procItems(json)) 
-      .catch(err => console.log(err));
+    const makePageContainer = () => {
+      //<span>1</span> ~ <span>10</span> 태그를
+      //page-container안에 생성할 수 있도록 해주세요.
+      const $pageContainer = document.querySelector('#page-container');
+      for( let i=1; i<11; i++ ) {
+        const $span = document.createElement('span');
+        $pageContainer.append($span);
+        $span.innerText = i;
+        $span.addEventListener('click', () => {
+            getData(i);
+        } );
+      }
+    }
+    makePageContainer();
 
-      const procItems = list => {
-          const $container = document.querySelector('#container');
-          list.forEach( item, i => { 
+    const getData = page => {
+        fetch(`https://picsum.photos/v2/list?limit=50&page=${page}`)
+        .then(res => res.json()) //json은 문자열. res.json()이렇게쓰면 비로소 자바스크립트가 됨
+        .then(json => procItems(json)) 
+        .catch(err => {
+          alert('에러 발생!');
+          console.log(err);
+        } );
+    }
+    getData(1);
+    
+    const $container = document.querySelector('#container');
+          const procItems = list => {
+            $container.innerText = null;
+            list.forEach( (item, i) => { 
               const elem = makeItem(item); //elem에는 div의 객체 주소값이 담김
               //컨테이너에 elem을 append 해주세요.
               $container.append(elem);
-          } );
-      }
-
+            } );
+          }
       const makeItem = data => {
         console.log('data:', data);
-        //src 속성에 download_url속성에 담긴 값을 넣고 싶어요.
-          const img = document.crateElement('div'); 
+        // 기존이미지 크기보다 1/10 작은 이미지가 뜰 수 있도록 해주세요.
+          const width = parseInt(data.width * 0.1);
+          const height = parseInt(data.height * 0.1);
+          const src = `https://picsum.photos/id/${data.id}/${width}/${height}`;
+          const div = document.createElement('div'); 
+          // 백틱(``) 사이에 값을 넣으면 변수에 들어있는 값을 문자열에 넣을 때 편함
           div.innerHTML = ` 
-            < img src ="${data_download_url}" alt="">
-            <div></div>
+            <img src ="${src}" alt="${data.author} 작가가 찍은 사진">
+            <div>${data.author}</div>
           `;
           return div;
       }
