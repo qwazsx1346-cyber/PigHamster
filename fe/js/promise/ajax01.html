@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax01.html</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+      fetch('https://picsum.photos/v2/list')
+      .then(res => console.log()) // 앞에 . 을 붙일 수 있는건 객체주소값
+      .catch(err => console.log(err))
+  </script>
+</body>
+</html>

@@ -26,7 +26,7 @@ const p1 = new Promise( (resolve, reject) => { //파라미터안에 resolve, rej
       resolve('홀수'); //then메소드에 전달된 콜백함수가 호출, 아규먼트값이 넘어간다.
   } else { //짝수
       reject('짝수'); //catch메소드에 전달된 콜백함수가 호출, 아규먼트값이 넘어간다.
-  }
+    }
 }); //p1에는 Promise객체 주소값 저장
 
 p1 //then과 catch는 Promise의 객체인 (a, b)에서 then은 a, catch는 b와 짝꿍
