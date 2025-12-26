@@ -1,20 +1,22 @@
-const users = [
-  { id: 1, name: 'Kim', age: 25, isActive: true },
-  { id: 2, name: 'Lee', age: 32, isActive: false },
-  { id: 3, name: 'Park', age: 28, isActive: true },
-  { id: 4, name: 'Choi', age: 40, isActive: true },
-  { id: 5, name: 'Jung', age: 22, isActive: false },
+const orders = [
+  { item: "노트북", price: 1200000, quantity: 2 },
+  { item: "마우스", price: 35000, quantity: 5 },
+  { item: "키보드", price: 89000, quantity: 3 },
+  { item: "모니터", price: 450000, quantity: 1 }
 ];
 
-//true는 활성, false는 비활성 유저. 그러므로 활성유저 먼저 뽑아줌
-const act = users.filter( user => user.isActive);
+let totalSales = 0;
+let highPriceItems = [];
 
-//그 중에서 30세 미만인 사람의 이름만 뽑기
-const yname = act
-.filter(user.age < 30)
-.map(user => user.name);
+orders.forEach(order => {
+  const sales = order.price * order.quantity;
+  totalSales += sales;
 
-//마지막으로 출력은 forEach로
-yname.forEach( name => {
-  console.log(`활성 사용자: ${name}`);
-} );
+  if (sales >= 1000000) {
+    highPriceItems.push(order.item);
+  }
+});
+
+console.log("총 매출:", totalSales);
+console.log("고액 상품 목록:", highPriceItems);
+

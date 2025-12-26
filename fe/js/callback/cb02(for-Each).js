@@ -18,3 +18,4 @@ console.log('------------');
 arr.forEach((item,idx) => {
   console.log(`arr[${idx}]: ${item}`);
 });
+
