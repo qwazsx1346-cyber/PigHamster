@@ -8,9 +8,44 @@
 <body>
   <div id="container"></div>
   <script>
-      fetch('https://picsum.photos/v2/list')
-      .then(res => console.log()) // 앞에 . 을 붙일 수 있는건 객체주소값
-      .catch(err => console.log(err))
+    // 앞에 . 을 붙일 수 있는건 객체주소값
+    fetch('https://picsum.photos/v2/list')
+    .then(res => res.json()) //json은 문자열. res.json()이렇게쓰면 비로소 자바스크립트가 됨
+      .then(json => procItems(json)) 
+      .catch(err => console.log(err));
+
+      const procItems = list => {
+          const $container = document.querySelector('#container');
+          list.forEach( item, i => { 
+              const elem = makeItem(item); //elem에는 div의 객체 주소값이 담김
+              //컨테이너에 elem을 append 해주세요.
+              $container.append(elem);
+          } );
+      }
+
+      const makeItem = data => {
+        console.log('data:', data);
+        //src 속성에 download_url속성에 담긴 값을 넣고 싶어요.
+          const img = document.crateElement('div'); 
+          div.innerHTML = ` 
+            < img src ="${data_download_url}" alt="">
+            <div></div>
+          `;
+          return div;
+      }
+
+      const obj = {
+        name : '홍길동',
+        age: 22,
+        height: 168.4
+      }
+
+      console.log('obj:', obj); //객체가 됨
+
+      const jsonObj = JSON.stringify(obj); //문자열이 됨
+      console.log('jsonObj:', jsonObj); 
+      const obj2 = JSON.parse(jsonObj); //다시 객체가 됨
+      console.log('obj2:', obj2);
   </script>
 </body>
 </html>
