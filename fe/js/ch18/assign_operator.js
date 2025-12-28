@@ -30,7 +30,7 @@ let result4 = n4++; //읽기 -> 쓰기
 let n5 = 10;
 let result5 = ++n5; //쓰기 -> 읽기
 
-console.log('result4', result4); //10
+console.log('result4', result4); //10, 컴퓨터가 result4에 n4를 먼저 저장하여 최초는 10, 그 이후 +1되어 11로 출력 
 console.log('result5', result5); //11
 console.log('n4', n4);
 console.log('n5', n5);
@@ -47,3 +47,9 @@ console.log('n7', n7); //11
 let n8 = 10;
 console.log('++n8', ++n8); //11
 console.log('n8', n8); //11
+
+let n9 = 11;
+console.log('n9--', n9--); //11
+console.log('n9', n9); //10
+
+// 2025 12 28 23:31  노트북으로 첫 풀당긴 후 푸시테스트

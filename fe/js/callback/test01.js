@@ -16,3 +16,4 @@ function test(cb) {
 
 test(fn);
 test(function() { console.log('ㅋㅋㅋ');})
+
