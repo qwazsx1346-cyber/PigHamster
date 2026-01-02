@@ -23,7 +23,7 @@ let aaa;
 
 const ddd = '';
 
-const bbb = {
+const person1 = {
     name: '김철수3',
     age: 25,
     married: false,
