@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.board.application.BoardMapper">
+    <!-- 인터페이스에 있는 메소드와 연결. 메소드명은 id랑 같다. -->
+    <insert id="save">
+        INSERT INTO board
+            SET title = #{title},
+                contents = #{contents}
+    </insert>
+
+    <select id="findAll">
+        SELECT id, title, created_at AS createdAt
+        FROM board
+        ORDER BY id DESC
+    </select>
+
+    <select id="findById">
+        SELECT id, title, contents, created_at AS createdAt
+        FROM board
+        WHERE id = #{id}
+    </select>
+
+    <update id="update">
+        UPDATE board
+        SET title = #{title},
+            contents = #{contents}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE
+        FROM board
+        WHERE id = #{id}
+    </delete>
+
+</mapper>
