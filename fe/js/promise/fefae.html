@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax01.html</title>
+    <style>
+        #page-container span { 
+            display:inline-block; margin-left: 10px; 
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-container"></div>
+    <div id="container"></div>
+    <script>
+        const makePageContainer = () => {
+            //<span>1</span> ~ <span>10</span>
+            //태그를 page-container안에 생성할 수 있도록 해주세요.
+            const $pageContainer = document.querySelector('#page-container');
+            for(let i=1; i<=10; i++) {
+                const $span = document.createElement('span');
+                $pageContainer.append($span);
+                $span.innerText = i;
+                $span.addEventListener('click', () => {
+                    getData(i);
+                });
+            }
+        }
+        makePageContainer();
+
+        const getData = page => {
+            fetch(`https://picsum.photos/v2/list?limit=50&page=${page}`)
+            .then( res => res.json() )
+            .then( json => procItems(json) )
+            .catch( err => {
+                alert('에러 발생!');
+                console.log(err);
+            } );
+        }
+        getData(1);
+
+
+        const procItems = list => {
+            const $container = document.querySelector('#container');
+        
+        const $container = document.querySelector('#container');
+
+        const procItems = list => {
+            $container.innerText = null;
+            list.forEach( (item, i) => {
+                const elem = makeItem(item);
+                //컨테이너에 elem을 append 해주세요.
+                $container.append(elem);
+            } );
+        }

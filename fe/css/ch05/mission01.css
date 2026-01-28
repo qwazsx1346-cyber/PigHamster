@@ -1,0 +1,3 @@
+button { background-color: gray;}
+.primary:not(#submitBtn) { background-color: blue; color: white;}
+#submitBtn {background-color: green;}

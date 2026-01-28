@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position_sticky.html</title>
+  <style>
+      * {margin: 0; padding: 0;}
+      .container { position: relative; margin-top: 57px; height: 300vh;}
+      header { position: fixed; top: 0; left: 0; right: 0;
+                background-color: gray; height: 57px; color: #fff;
+                display: flex; justify-content: center; align-items: center;}
+      header h1 { font-size: 24px;}
+      .one > img { width: 100%; display: block;} /* width값 100%나 100vw나 같음 */
+      .two { position: sticky; top: 0; padding: 70px 0 0 12px;
+              text-align: center; height: 800px; }
+      footer { font-size: 24px; height: 1500px;
+                background-color: #fbd1d1;}
+  </style>
+</head>
+<body>
+  <div class="container">
+      <header>
+          <h1>header area</h1>
+      </header>
+
+      <div class="one">
+          <img src="https://picsum.photos/640/480" alt="dummy 이미지">
+          <img src="https://picsum.photos/640/481" alt="dummy 이미지">
+          <img src="https://picsum.photos/640/482" alt="dummy 이미지">
+      </div>
+      <div class="two">
+          <h2>position sticky</h2>
+          <div>scrolling</div>
+      </div>
+
+      <footer>
+          <p>footer area</p>
+      </footer>
+  </div>
+</body>
+</html>

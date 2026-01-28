@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      .outer li { color: olivedrab;}
+      .outer > li { color: dodgerblue;}
+      .outer > li li {text-decoration: underline;}
+      /* General Sibling 선택자 (일반) */
+      .starter ~ li { font-style: italic;}
+      /* Adjacent Sibling 선택자 (인접) */
+      .starter + li { font-weight: bold;}
+      /* 가상 선택자 (가상클래스 조합) */
+      ol li:first-child, ol li:last-child { color: yellowgreen}
+      .outer > li:not(:last-child) { text-decoration: line-through;}
+      ul:not(.outer) li { font-weight: bold;}
+      ol li:nth-child(3) { font-weight: bold; color: deeppink}
+      ol li:nth-child(6) { font-weight: bold; color: red}
+      li:hover { font-weight: bold; color: blue; }
+  </style>
+  <title>pseudoclass.html</title>
+</head>
+<body>
+  <ul class="outer">
+      <li>육류</li>
+      <li>채소</li>
+      <li>유제품</li>
+      <li>과일
+        <ul>
+            <li>사과</li>
+            <li>포도</li>
+            <li>딸기</li>
+            <li>키위</li>
+        </ul>
+      </li>
+  </ul>
+  <ol>
+      <li>한놈</li>
+      <li>두시기</li>
+      <li class="starter">석삼</li>
+      <li>너구리</li>
+      <li>다섯놈</li>
+      <li>육개장</li>
+      <li>칠푼이</li>
+      <li>팔보채</li>
+      <li>구공탄</li>
+  </ol>
+</body>
+</html>

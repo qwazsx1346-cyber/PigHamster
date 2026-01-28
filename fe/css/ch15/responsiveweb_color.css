@@ -1,0 +1,50 @@
+body { margin: 0; }
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+}
+div { 
+  display: none;
+  font-size: 1.4em;
+}
+
+/* 미디어 쿼리 (Media Query) */
+
+/* 스마트폰 */
+@media (max-width: 480px) {
+  section { background-color: tomato;}
+  .mobile {display: inherit;}
+}
+
+/* 저해상도 태블릿 */
+@media (min-width: 481px) and (max-width: 767px) {
+  section { background-color: olivedrab;}
+}
+
+/* 태블릿 세로 화면 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  section { background-color: darkorchid;}
+  .port-tablet { display: inherit; }
+}
+
+/* 태블릿 가로 및 저해상도 노트북, PC 화면 */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  section { background-color: darkorange;}
+  .low-pc { display: inherit;}
+}
+
+/* 일반 노트북, PC 화면 */
+@media (min-width: 1281px) {
+  section { background-color: slateblue;}
+  .high-pc { display: inherit;}
+}
+
+/* or 조건 사용 */
+@media (max-width: 480px), (min-width: 1281px) {
+  div { color: yellow;}
+}

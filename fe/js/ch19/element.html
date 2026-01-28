@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>element.html</title>
+</head>
+<body>
+  <div>A</div>
+  <div>B</div>
+  <script>
+    // 자바스크립트 문법 작성 자바스크립트는 head태그에 넣어버리면 텍스트들이 화면에 다
+    // 나오기도 전에 실행이 되어버려서 진행이 안됨
+    // 아규먼트로 css 선택자 작성(주소값을 얻어오고 싶은 엘리먼트 선택!!)
+    //querySelector -> 엘리먼트 주소값 하나
+    //querySelectorAll -> 배열 주소값 하나
+    const div01 = document.querySelector('div'); //<div>A</div> 객체 주소값 리턴
+    div01.innerText = '가'
+    div01.style.backgroundColor = 'red';
+    // div01.remove();
+  </script>
+</body>
+</html>

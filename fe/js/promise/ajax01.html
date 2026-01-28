@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax01.html</title>
+  <style>
+      #page-container span {
+          display: inline-block; margin-left: 10px;
+          cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+  <div id="page-container"></div>
+  <div id="container"></div>
+  <script>
+    const makePageContainer = () => {
+      //<span>1</span> ~ <span>10</span> 태그를
+      //page-container안에 생성할 수 있도록 해주세요.
+      const $pageContainer = document.querySelector('#page-container');
+      for( let i=1; i<11; i++ ) {
+        const $span = document.createElement('span');
+        $pageContainer.append($span);
+        $span.innerText = i;
+        $span.addEventListener('click', () => {
+            getData(i);
+        } );
+      }
+    }
+    makePageContainer();
+
+    const getData = page => {
+        fetch(`https://picsum.photos/v2/list?limit=50&page=${page}`)
+        .then(res => res.json()) //json은 문자열. res.json()이렇게쓰면 비로소 자바스크립트가 됨
+        .then(json => procItems(json)) 
+        .catch(err => {
+          alert('에러 발생!');
+          console.log(err);
+        } );
+    }
+    getData(1);
+    
+    const $container = document.querySelector('#container');
+          const procItems = list => {
+            $container.innerText = null;
+            list.forEach( (item, i) => { 
+              const elem = makeItem(item); //elem에는 div의 객체 주소값이 담김
+              //컨테이너에 elem을 append 해주세요.
+              $container.append(elem);
+            } );
+          }
+      const makeItem = data => {
+        console.log('data:', data);
+        // 기존이미지 크기보다 1/10 작은 이미지가 뜰 수 있도록 해주세요.
+          const width = parseInt(data.width * 0.1);
+          const height = parseInt(data.height * 0.1);
+          const src = `https://picsum.photos/id/${data.id}/${width}/${height}`;
+          const div = document.createElement('div'); 
+          // 백틱(``) 사이에 값을 넣으면 변수에 들어있는 값을 문자열에 넣을 때 편함
+          div.innerHTML = ` 
+            <img src ="${src}" alt="${data.author} 작가가 찍은 사진">
+            <div>${data.author}</div>
+          `;
+          return div;
+      }
+
+      const obj = {
+        name : '홍길동',
+        age: 22,
+        height: 168.4
+      }
+
+      console.log('obj:', obj); //객체가 됨
+
+      const jsonObj = JSON.stringify(obj); //문자열이 됨
+      console.log('jsonObj:', jsonObj); 
+      const obj2 = JSON.parse(jsonObj); //다시 객체가 됨
+      console.log('obj2:', obj2);
+  </script>
+</body>
+</html>
